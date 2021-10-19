@@ -21442,6 +21442,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "companies.create",
   setup: function setup() {
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
       'name': '',
@@ -21605,7 +21606,7 @@ var _hoisted_6 = {
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "address",
+  "for": "adress",
   "class": "block text-sm font-medium text-gray-700"
 }, "Address", -1
 /* HOISTED */
@@ -21663,15 +21664,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.email]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
-    name: "address",
-    id: "address",
+    name: "adress",
+    id: "adress",
     "class": "block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $setup.form.address = $event;
+      return $setup.form.adress = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.address]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.adress]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     name: "website",
     id: "website",
@@ -21887,10 +21888,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 function useCompanies() {
-  var company = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var companies = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
-  var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
+  var company = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
   var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
+  var errors = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)('');
 
   var getCompanies = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -21927,7 +21928,7 @@ function useCompanies() {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/companies/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/companies/' + id);
 
             case 2:
               response = _context2.sent;
@@ -22001,12 +22002,12 @@ function useCompanies() {
               errors.value = '';
               _context4.prev = 1;
               _context4.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().patch("/api/companies/".concat(id), company.value);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().put('/api/companies/' + id, company.value);
 
             case 4:
               _context4.next = 6;
               return router.push({
-                name: 'comanies.index'
+                name: 'companies.index'
               });
 
             case 6:
@@ -22019,7 +22020,7 @@ function useCompanies() {
 
               if (_context4.t0.response.status === 422) {
                 for (key in _context4.t0.response.data.errors) {
-                  errors.value += _context4.t0.response.data.errors[key][0] + '';
+                  errors.value += _context4.t0.response.data.errors[key][0] + ' ';
                 }
               }
 
@@ -22043,7 +22044,7 @@ function useCompanies() {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]("/api/companies/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_2___default()["delete"]('/api/companies/' + id);
 
             case 2:
             case "end":
@@ -22059,11 +22060,11 @@ function useCompanies() {
   }();
 
   return {
-    errors: errors,
-    company: company,
     companies: companies,
-    getCompany: getCompany,
+    company: company,
+    errors: errors,
     getCompanies: getCompanies,
+    getCompany: getCompany,
     storeCompany: storeCompany,
     updateCompany: updateCompany,
     destroyCompany: destroyCompany
@@ -22084,19 +22085,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var _components_companies_CompaniesIndex_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/companies/CompaniesIndex.vue */ "./resources/js/components/companies/CompaniesIndex.vue");
-/* harmony import */ var _components_companies_CompaniesCreate_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/companies/CompaniesCreate.vue */ "./resources/js/components/companies/CompaniesCreate.vue");
+/* harmony import */ var _components_companies_CompaniesIndex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/companies/CompaniesIndex */ "./resources/js/components/companies/CompaniesIndex.vue");
+/* harmony import */ var _components_companies_CompaniesCreate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/companies/CompaniesCreate */ "./resources/js/components/companies/CompaniesCreate.vue");
 
 
 
 var routes = [{
   path: '/dashboard',
   name: 'companies.index',
-  component: _components_companies_CompaniesIndex_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  component: _components_companies_CompaniesIndex__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/companies/create',
   name: 'companies.create',
-  component: _components_companies_CompaniesCreate_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _components_companies_CompaniesCreate__WEBPACK_IMPORTED_MODULE_1__["default"]
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createWebHistory)(),

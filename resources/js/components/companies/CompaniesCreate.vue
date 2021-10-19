@@ -50,31 +50,25 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
-import useCompanies from "../../composables/companies"
+import { reactive } from "vue";
+import useCompanies from "../../composables/companies";
 export default {
     setup() {
         const form = reactive({
-            'name':'',
-            'email':'',
-            'adress':'',
-            'website':'',
+            'name': '',
+            'email': '',
+            'address': '',
+            'website': '',
         })
-
-        const { errors, storeCompany } = useCompanies();
-
+        const { errors, storeCompany } = useCompanies()
         const saveCompany = async () => {
             await storeCompany({...form});
         }
         return {
             form,
             errors,
-            saveCompany,
+            saveCompany
         }
     }
 }
 </script>
-
-<style>
-
-</style>

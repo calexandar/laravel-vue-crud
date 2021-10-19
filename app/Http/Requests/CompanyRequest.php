@@ -13,7 +13,7 @@ class CompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,8 +26,8 @@ class CompanyRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'address' => ['nullable', 'string'],
-            'website' => ['nullable', 'url'],
+            'adress' => [ 'string'],
+            'website' => ['url'],
         ];
     }
 }
